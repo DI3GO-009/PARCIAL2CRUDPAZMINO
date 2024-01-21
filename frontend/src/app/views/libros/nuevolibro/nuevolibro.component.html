@@ -3,47 +3,36 @@
       <h6 class="m-0 font-weight-bold text-primary">{{ title }}</h6>
     </div>
     <div class="card-body">
-      <form [formGroup]="empleado" (ngSubmit)="grabar()">
+      <form [formGroup]="libro" (ngSubmit)="grabar()">
         <div class="mb-2">
           <label for="Nombre">Nombre</label>
-          <input type="text" class="form-control" formControlName="Nombre" />
-          @if (empleado.invalid && (empleado.dirty || empleado.touched)) {
+          <input type="text" class="form-control" formControlName="Titulo" />
+          @if (libro.invalid && (libro.dirty || libro.touched)) {
           <div class="alert">
-            @if (empleado.errors?.["required"]) {
-            <div class="ng-invalid">Nombre es requerido</div>
+            @if (libro.errors?.["required"]) {
+            <div class="ng-invalid">Titulo es requerido</div>
             }
           </div>
           }
         </div>
         <div class="mb-2">
-          <label for="Cargo">Cargo</label>
-          <input type="text" class="form-control" formControlName="Cargo" />
-          @if (empleado.invalid && (empleado.dirty || empleado.touched)) {
+          <label for="Cargo">Genero</label>
+          <input type="text" class="form-control" formControlName="Genero" />
+          @if (libro.invalid && (libro.dirty || libro.touched)) {
           <div class="alert">
-            @if (empleado.errors?.["required"]) {
-            <div class="ng-invalid">El Cargo es requerido</div>
+            @if (libro.errors?.["required"]) {
+            <div class="ng-invalid">El genero es requerido</div>
             }
           </div>
           }
-        </div>
+        </div>        
         <div class="mb-2">
-          <label for="Salario">Salario</label>
-          <input type="text" class="form-control" formControlName="Salario" />
-          @if (empleado.invalid && (empleado.dirty || empleado.touched)) {
-          <div class="alert">
-            @if (empleado.errors?.["required"]) {
-            <div class="ng-invalid">El salario es requerido</div>
-            }
-          </div>
-          }
-        </div>
-        <div class="mb-2">
-          <label for="Fecha_contratacion">Fecha de contratacion</label>
-          <input type="date" class="form-control" formControlName="Fecha_contratacion" />
-          @if (empleado.invalid && (empleado.dirty || empleado.touched)) {
+          <label for="Fecha_publicacion">Fecha de publicacion</label>
+          <input type="date" class="form-control" formControlName="Fecha_publicacion" />
+          @if (libro.invalid && (libro.dirty || libro.touched)) {
               <div class="alert">
-                  @if (empleado.errors?.["required"]) {
-                      <div class="ng-invalid">La Fecha de contratacion requerida</div>
+                  @if (libro.errors?.["required"]) {
+                      <div class="ng-invalid">La Fecha de publicacion requerida</div>
                   }
               </div>
           }
@@ -53,11 +42,11 @@
           <button
             type="submit"
             class="btn btn-primary"
-            [disabled]="!empleado.valid"
+            [disabled]="!libro.valid"
           >
             Grabar
           </button>
-          <button class="btn btn-secondary" routerLink="/empleados">
+          <button class="btn btn-secondary" routerLink="/libros/nuevolibro">
             Cancelar
           </button>
         </div>

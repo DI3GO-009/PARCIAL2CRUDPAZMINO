@@ -3,13 +3,13 @@
       <h6 class="m-0 font-weight-bold text-primary">{{ title }}</h6>
     </div>
     <div class="card-body">
-      <form [formGroup]="empleado" (ngSubmit)="grabar()">
+      <form [formGroup]="autor" (ngSubmit)="grabar()">
         <div class="mb-2">
           <label for="Nombre">Nombre</label>
           <input type="text" class="form-control" formControlName="Nombre" />
-          @if (empleado.invalid && (empleado.dirty || empleado.touched)) {
+          @if (autor.invalid && (autor.dirty || autor.touched)) {
           <div class="alert">
-            @if (empleado.errors?.["required"]) {
+            @if (autor.errors?.["required"]) {
             <div class="ng-invalid">Nombre es requerido</div>
             }
           </div>
@@ -18,32 +18,21 @@
         <div class="mb-2">
           <label for="Cargo">Cargo</label>
           <input type="text" class="form-control" formControlName="Cargo" />
-          @if (empleado.invalid && (empleado.dirty || empleado.touched)) {
+          @if (autor.invalid && (autor.dirty || autor.touched)) {
           <div class="alert">
-            @if (empleado.errors?.["required"]) {
-            <div class="ng-invalid">El Cargo es requerido</div>
+            @if (autor.errors?.["required"]) {
+            <div class="ng-invalid">Nacionalidad es requerida</div>
             }
           </div>
           }
-        </div>
-        <div class="mb-2">
-          <label for="Salario">Salario</label>
-          <input type="text" class="form-control" formControlName="Salario" />
-          @if (empleado.invalid && (empleado.dirty || empleado.touched)) {
-          <div class="alert">
-            @if (empleado.errors?.["required"]) {
-            <div class="ng-invalid">El salario es requerido</div>
-            }
-          </div>
-          }
-        </div>
+        </div>        
         <div class="mb-2">
           <label for="Fecha_contratacion">Fecha de contratacion</label>
           <input type="date" class="form-control" formControlName="Fecha_contratacion" />
-          @if (empleado.invalid && (empleado.dirty || empleado.touched)) {
+          @if (autor.invalid && (autor.dirty || autor.touched)) {
               <div class="alert">
-                  @if (empleado.errors?.["required"]) {
-                      <div class="ng-invalid">La Fecha de contratacion requerida</div>
+                  @if (autor.errors?.["required"]) {
+                      <div class="ng-invalid">La Fecha de nacimiento requerida</div>
                   }
               </div>
           }
@@ -53,11 +42,11 @@
           <button
             type="submit"
             class="btn btn-primary"
-            [disabled]="!empleado.valid"
+            [disabled]="!autor.valid"
           >
             Grabar
           </button>
-          <button class="btn btn-secondary" routerLink="/empleados">
+          <button class="btn btn-secondary" routerLink="/autores">
             Cancelar
           </button>
         </div>

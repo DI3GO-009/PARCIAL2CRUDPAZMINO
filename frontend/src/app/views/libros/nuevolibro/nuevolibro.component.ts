@@ -6,7 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { EmpleadosService } from '../../../Services/empleados.service';
+import { LibrosService } from '../../../Services/libros.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 @Component({
@@ -19,7 +19,7 @@ import Swal from 'sweetalert2';
 export class NuevolibroComponent {
   title ='';
   id!: number;
-  empleado: FormGroup = new FormGroup({
+  libro: FormGroup = new FormGroup({
     Nombre: new FormControl('', Validators.required),
     Cargo: new FormControl('', Validators.required),
     Salario: new FormControl('', Validators.required),
@@ -27,7 +27,7 @@ export class NuevolibroComponent {
 
 });
   constructor(
-    private empleadosServicio: EmpleadosService,
+    private librosServicio: LibrosService,
     private rutas: Router,
     private parametros: ActivatedRoute
   ){}
@@ -35,26 +35,26 @@ export class NuevolibroComponent {
     this.id = this.parametros.snapshot.params['id'];
     console.log(this.id);
     if (this.id == 0 || this.id == undefined) {
-      this.title = 'Nuevo Empleado';
+      this.title = 'Nuevo Libro';
     }else{
-      this.title = 'Actualizar Empleado';
-      this.empleadosServicio.uno(this.id).subscribe((res) => {
+      this.title = 'Actualizar Libro';
+      this.librosServicio.uno(this.id).subscribe((res) => {
         console.log(res);
-        this.empleado.patchValue({
-          Nombre: res.Nombre,
-          Cargo: res.Cargo,
-          Salario: res.Salario,
-          Fecha_contratacion: res.Fecha_contratacion,
+        this.libro.patchValue({
+          Titulo: res.Titulo,
+          Genero: res.Genero,
+         
+          Fecha_publicacion: res.Fecha_publicacion,
         });
       });
     }
   }
   get f() {
-    return this.empleado.controls;
+    return this.libro.controls;
   }
   grabar() {
     Swal.fire({
-      title: 'Empleados',
+      title: 'Libros',
       text: 'Esta seguro que desea guardar el registro',
       icon: 'warning',
       showCancelButton: true,
@@ -64,33 +64,33 @@ export class NuevolibroComponent {
     }).then((result) => {
       if (result.isConfirmed) {
         if (this.id == 0 || this.id == undefined) {
-          this.empleadosServicio
-            .insertar(this.empleado.value)
+          this.librosServicio
+            .insertar(this.libro.value)
             .subscribe((res) => {
               Swal.fire({
-                title: 'Empleados',
+                title: 'Libros',
                 text: 'Se insertó con éxito el registro',
                 icon: 'success',
               });
-              this.rutas.navigate(['/empleados']);
+              this.rutas.navigate(['/libros']);
               this.id = 0;
             });
         } else {
-          this.empleadosServicio
-            .actualizar(this.empleado.value, this.id)
+          this.librosServicio
+            .actualizar(this.libro.value, this.id)
             .subscribe((res) => {
               Swal.fire({
-                title: 'Empleados',
+                title: 'Libros',
                 text: 'Se actualizó con éxito el registro',
                 icon: 'success',
               });
-              this.rutas.navigate(['/empleados']);
+              this.rutas.navigate(['/libros']);
               this.id = 0;
             });
           }
         }else{
           Swal.fire({
-            title: 'Empleados',
+            title: 'Libros',
             text: 'El usuario canceló la acción',
             icon: 'info',
           });
