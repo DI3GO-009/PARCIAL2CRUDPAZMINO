@@ -13,8 +13,16 @@ export const routes: Routes = [
   },
   { path: 'autores',
    component: AutoresComponent },
+   { path: 'libros',
+   component: AutoresComponent },
+   { path: 'autores',
+   component: AutoresComponent },
+   { path: 'autores',
+   component: AutoresComponent },
+   { path: 'autores',
+   component: AutoresComponent },
+   
   
-  ,
   {
     path: 'proyectos',
     component: ProyectosComponent,
