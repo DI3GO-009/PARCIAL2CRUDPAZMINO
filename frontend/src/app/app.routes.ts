@@ -1,39 +1,37 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
-import { AutoresComponent  } from './views/autores/autores.component';
+import { LibrosComponent } from './views/libros/libros.component';
 import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
-import { NuevoEmpleadoComponent  } from './views/empleados/nuevo-empleado/nuevo-empleado.component';
-import { ProyectosComponent } from './views/proyectos/proyectos.component';
-import { NuevoProyectoComponent } from './views/proyectos/nuevo-proyecto/nuevo-proyecto.component';
+import { NuevolibroComponent  } from './views/libros/nuevolibro/nuevolibro.component';
+import { AutoresComponent } from './views/autores/autores.component';
+import { NuevoautorComponent } from './views/autores/nuevoautor/nuevoautor.component';
 export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
   },
-  { path: 'autores',
-   component: AutoresComponent },
-   { path: 'libros',
-   component: AutoresComponent },
-   { path: 'autores',
-   component: AutoresComponent },
-   { path: 'autores',
-   component: AutoresComponent },
-   { path: 'autores',
-   component: AutoresComponent },
-   
-  
+  { path: 'libros', 
+  component: LibrosComponent },
   {
-    path: 'proyectos',
-    component: ProyectosComponent,
+    path: 'nuevolibro',
+    component: NuevolibroComponent,
   },
   {
-    path: 'nuevo-proyecto',
-    component: NuevoProyectoComponent,
+    path: 'editar-libro/:id',
+    component: NuevolibroComponent,
   },
   {
-    path: 'editar-proyecto/:id',
-    component: NuevoProyectoComponent,
+    path: 'autores',
+    component: AutoresComponent,
+  },
+  {
+    path: 'nuevoautor',
+    component: NuevoautorComponent,
+  },
+  {
+    path: 'editar-autor/:id',
+    component: NuevoautorComponent,
   },
 
 
