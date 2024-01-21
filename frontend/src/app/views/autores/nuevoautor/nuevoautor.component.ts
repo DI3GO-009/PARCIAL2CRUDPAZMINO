@@ -54,7 +54,7 @@ export class NuevoautorComponent {
   }
   grabar() {
     Swal.fire({
-      title: 'autors',
+      title: 'autores',
       text: 'Esta seguro que desea guardar el registro',
       icon: 'warning',
       showCancelButton: true,
@@ -68,7 +68,7 @@ export class NuevoautorComponent {
             .insertar(this.autor.value)
             .subscribe((res) => {
               Swal.fire({
-                title: 'autors',
+                title: 'autores',
                 text: 'Se insertó con éxito el registro',
                 icon: 'success',
               });
@@ -80,7 +80,7 @@ export class NuevoautorComponent {
             .actualizar(this.autor.value, this.id)
             .subscribe((res) => {
               Swal.fire({
-                title: 'autors',
+                title: 'autores',
                 text: 'Se actualizó con éxito el registro',
                 icon: 'success',
               });
@@ -90,7 +90,7 @@ export class NuevoautorComponent {
           }
         }else{
           Swal.fire({
-            title: 'autors',
+            title: 'autores',
             text: 'El usuario canceló la acción',
             icon: 'info',
           });

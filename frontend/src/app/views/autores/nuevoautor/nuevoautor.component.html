@@ -16,8 +16,8 @@
           }
         </div>
         <div class="mb-2">
-          <label for="Cargo">Cargo</label>
-          <input type="text" class="form-control" formControlName="Cargo" />
+          <label for="Cargo">Nacionalidad</label>
+          <input type="text" class="form-control" formControlName="Nacionalidad" />
           @if (autor.invalid && (autor.dirty || autor.touched)) {
           <div class="alert">
             @if (autor.errors?.["required"]) {
@@ -27,8 +27,8 @@
           }
         </div>        
         <div class="mb-2">
-          <label for="Fecha_contratacion">Fecha de contratacion</label>
-          <input type="date" class="form-control" formControlName="Fecha_contratacion" />
+          <label for="Fecha_nacimiento">Fecha de contratacion</label>
+          <input type="date" class="form-control" formControlName="Fecha_nacimiento" />
           @if (autor.invalid && (autor.dirty || autor.touched)) {
               <div class="alert">
                   @if (autor.errors?.["required"]) {
